@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Movie.create([
+    {
+      title: "Top Gun",
+      image_url: "https://m.media-amazon.com/images/I/71y92uGrjBL._AC_SL1500_.jpg"
+    },
+    {
+        title: "Harry Potter",
+        image_url: "https://m.media-amazon.com/images/I/71y92uGrjBL._AC_SL1500_.jpg"
+      },
+      {
+        title: "Top Gun",
+        image_url: "https://m.media-amazon.com/images/I/71y92uGrjBL._AC_SL1500_.jpg"
+      },
+      {
+          title: "Harry Potter",
+          image_url: "https://m.media-amazon.com/images/I/71y92uGrjBL._AC_SL1500_.jpg"
+        },
+        {
+            title: "Top Gun",
+            image_url: "https://m.media-amazon.com/images/I/71y92uGrjBL._AC_SL1500_.jpg"
+          },
+          {
+              title: "Harry Potter",
+              image_url: "https://m.media-amazon.com/images/I/71y92uGrjBL._AC_SL1500_.jpg"
+            }
+      ])
+  
