@@ -47,56 +47,61 @@
 } */
 
 .movieconsole {
-
-
   width: 85%;
+  max-width: 3600px;
   height: 50px;
-  background-color: #00d5ff;
+  /* background-color: #00d5ff; */
   /* Center vertically and horizontally */
-  position: absolute;
-  top: 20%;
-  left: 8%;
-  margin: -25px 0 0 -25px;
+  position: relative;
+  top: 100px;
+  left: 10%;
+  display:flex;
+  justify-content: center;
+  /* margin: -25px 0 0 -25px; */
 }
 
 .moviel {
   position: relative;
   overflow: auto;
   display: inline;
-  float: left;
-  height: 800px;
-  top: 30px;
-  width: auto
+  /* float: left; */
+  /* height: 800px; */
+  top: 20px;
+  /* width:3000px; */
+  left:-7%;
+  /* left:-500px; */
+  /* width: auto; */
 }
 
 
 .favorites {
   position: relative;
-  top: 1200px;
+  top: -670px;
   height: 800px;
 
-  left: 8%;
+  left: 15%;
 }
 
 .reviews {
   position: relative;
-  top: 378px;
-  left: 700px;
+  top: 230px;
+  /* left: 800px; */
+  left:50%
 }
 
 .moviecard {
-  width: 500px;
-  height: 700px;
+  width: 300px;
+  height: 400px;
 
 }
 
 .movieposter {
   position: relative;
-  max-height: 400px;
+  max-height: 600px;
   height: auto;
-  max-width: 300px;
+  max-width: 400px;
   width: auto;
-  left: -40px;
+  /* left: -40px; */
 
 
 }
@@ -104,23 +109,28 @@
 
 
 .movietitle {
-  font-size: 12px;
+  font-size: 16px;
   position: relative;
-  width: 80%;
+  width: auto;
+  max-width: 280px;
+
   text-align: center;
   z-index: 4;
-  top: 50px;
+  top:60px;
   background-color: rgba(0, 0, 0, 0.809);
+  padding:10px;
   font-weight: bolder;
   color: white;
-  left: -10px;
+  /* left: -100px; */
+  /* height:40px; */
+  
 }
 
 .Search {
   position: relative;
-  left: 27%;
+  left:6.2%;
   top: 10px;
-  width: 40%
+  width: 600px;
 }
 
 .options {
@@ -130,6 +140,7 @@
 
 .favorites {
   width: 400px;
+  top:1050px;
 }
 
 .favmovietitle {
@@ -150,11 +161,12 @@
   position: relative;
   height: 500px;
   overflow: auto;
-  width: 800px;
-  left: -150px;
+  width: 39%;
+  
 }
 
 .movieelement {
   position: relative;
-  left: 180px;
+  /* left:60px; */
+  /* width:500px; */
 }

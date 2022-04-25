@@ -1,5 +1,11 @@
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
+import { CardContent, GridList } from "@material-ui/core";
+import CardMedia from '@material-ui/core/CardMedia';
+import Card from '@material-ui/core/Card';
+import Typography from "@material-ui/core/Typography";
+
+
 
 
  function Movie({movie, handleAddFav}){
@@ -25,14 +31,24 @@ import IconButton from '@material-ui/core/IconButton'
 
     return (
         <div className='movieelement'>
-           <h1 className='movietitle'>{movie.title}  
+           {/* <h1 className='movietitle'>{movie.title}  
+           <IconButton    onClick= {favMovieSelect} variant='outlined' size='small'>❤️</IconButton>
+</h1> */}
+ <h1 className='movietitle'>{movie.title}  
            <IconButton    onClick= {favMovieSelect} variant='outlined' size='small'>❤️</IconButton>
 </h1>
-        <div>
-   <img className='movieposter'  src ={movie.image_url}
-    width="100%" height="100%" 
- ></img>
-        </div>
+  <Card className='moviecard' style={{ display: 'flex' }}>
+ 
+              <CardMedia     component="img"
+image={movie.image_url} title={movie.title} />
+          {/* <Typography gutterBottom variant="headline" component="h2"> */}
+       
+          {/* </Typography> */}
+
+   {/* <img className='movieposter'  src ={movie.image_url}
+    // width="100%" height="100%" 
+ ></img> */}
+            </Card>
         </div>
     )
 }

@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 // import { ImageList, ImageListTile } from "@material-ui/core";
 import { Stack, ImageList, ImageListItem } from '@mui/material'
 import Button from '@material-ui/core/Button'
-import { CardContent, GridList } from "@material-ui/core";
-import Card from '@mui/material/Card';
+import { CardContent, GridList,Card } from "@material-ui/core";
+// import Card from '@mui/material/Card';
 
 
 
@@ -49,10 +49,14 @@ function MovieList({ setSearch, search, movielist, handleAddFav }) {
         onChange={MovieSearch}
       ></input>
 
-
-      <GridList className='moviel' cellWidth={300} cellHeight={450} cols={4} >
-        {movielist.map((movie) => (
-          <ImageListItem key={movie.id} style={{ display: 'flex' }}  >
+      {/* <div className='moviel'> */}
+      {/* <GridList className='moviel'  cellHeight={450} cols={5} spacing={3} > */}
+      <ImageList className='moviel'
+      sx={{ width:4000, height: 850 }} 
+      cols={4}  rowHeight={450} spacing={1} >
+        
+      {movielist.map((movie) => (
+          <ImageListItem key={movie.id} style={{ display: 'flex' }}    >
             {/* <img src={movie.image_url} alt={movie.title} /> */}
             {/* <Card className='moviecard' style={{ display: 'flex' }}>
               <CardContent> */}
@@ -63,7 +67,9 @@ function MovieList({ setSearch, search, movielist, handleAddFav }) {
 
           </ImageListItem>
         ))}
-      </GridList>
+      {/* </GridList> */}
+      </ImageList>
+      {/* </div> */}
     </div>
 
 
