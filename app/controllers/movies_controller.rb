@@ -7,14 +7,7 @@ require 'openssl'
 class MoviesController < ApplicationController
 
   
-  # Imdb::Configuration.caching = true
-  # Imdb::Configuration.db(:hostname => "localhost", :database => "imdb")
-    
-  # TMDB::API.api_key = "d7ebfabe54c0a1ed8a53cfa274d03070"
-  # TMDB::API.config
-  # TMDB::API.genres
-  # TMDB::API.genres("tv")
-
+ 
   def index 
     movies = Movie.all 
     # render json: movies
