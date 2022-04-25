@@ -3,13 +3,20 @@ import IconButton from '@material-ui/core/IconButton'
 import { CardContent, GridList } from "@material-ui/core";
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
+import { useNavigate,Link,Outlet } from "react-router-dom";
+
 import Typography from "@material-ui/core/Typography";
+// import {Link} from 'react-router-dom'
+
 
 
 
 
  function Movie({movie, handleAddFav}){
+    const navigate = useNavigate();
 
+
+    const {title} = movie; 
     function favMovieSelect(){
     fetch("/favorites", {
         method: "POST",
@@ -26,6 +33,10 @@ import Typography from "@material-ui/core/Typography";
                 .then((r) => handleAddFav(r))
     }
 
+    // function selectReviewsPage(){
+    //     <Link to="/:title"}`></Link>
+    // }
+
 
 
 
@@ -34,9 +45,21 @@ import Typography from "@material-ui/core/Typography";
            {/* <h1 className='movietitle'>{movie.title}  
            <IconButton    onClick= {favMovieSelect} variant='outlined' size='small'>❤️</IconButton>
 </h1> */}
- <h1 className='movietitle'>{movie.title}  
+ <h2 className='movietitle'>{movie.title}  
+ <div className='likenreviewicons'>
            <IconButton    onClick= {favMovieSelect} variant='outlined' size='small'>❤️</IconButton>
-</h1>
+
+         {/* <Link to={`/movies/${movie.title}`} > */}
+          <IconButton 
+             onClick={() => {
+                navigate(`/movies/${movie.id}`);
+              }} 
+              variant='outlined' size='small'>📜</IconButton>
+             {/* </Link> */}
+
+          
+           </div>
+</h2>
   <Card className='moviecard' style={{ display: 'flex' }}>
  
               <CardMedia     component="img"

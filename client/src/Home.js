@@ -2,6 +2,15 @@ import MovieList from './MovieList'
 import { useState, useEffect } from 'react'
 import Favorite from './Favorite'
 import ReviewList from './ReviewList'
+import ReviewPage from './ReviewPage'
+
+import {
+  BrowserRouter,Routes,
+  Link,
+  Outlet,
+  Route,
+  Router
+} from "react-router-dom"
 
 function Home() {
   const [movlist, setMovlist] = useState([])
@@ -44,9 +53,14 @@ function Home() {
     setFavoritelist(updatedFav);
   }
 
-
+  console.log(movlist)
   return (
     <div>
+      {/* <div className='navi'>
+        <Link to="/"> Home </Link>
+      </div>
+      <Outlet /> */}
+
       <MovieList movielist={displayedMovies} search={search} setSearch={setSearch} favoritelist={favoritelist} setFavoritelist={setFavoritelist} handleAddFav={handleAddFav} />
 
       <div className='favorites'>
@@ -59,6 +73,10 @@ function Home() {
         <ReviewList reviews={reviews} setReviews={setReviews} />
 
       </div>
+       {/* <Routes>
+    
+         <Route path="/movies/:id" element={<ReviewPage movlist={movlist} />} />
+      </Routes> */}
 
     </div>
   )
