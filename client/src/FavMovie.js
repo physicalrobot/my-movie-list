@@ -15,8 +15,8 @@ export default function FavMovie({movie, handleDeleteFav, setFavoritelist}){
     }
 
     return(
-
-        <h1 onClick={handleDelete}>{movie.title}</h1>
-
+        <li className='favmovietitle'>
+        <h1  onClick={handleDelete}>{movie.title}</h1>
+        </li>
     )
 }

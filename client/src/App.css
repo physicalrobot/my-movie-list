@@ -91,9 +91,16 @@
 } */
 
 .movietitle{
+  font-size: 12px;
   position: relative;
   left:20px;
+  width:90%;
   text-align: center;
+  z-index: 4;
+  top:50px;
+  background-color: rgba(0, 0, 0, 0.809);
+  font-weight: bolder;
+  color:white;
 }
 
 .Search{
@@ -107,11 +114,18 @@
   /* display: flex; */
 
 }
-.favbutt{
-  /* z-index: 4;
-  position: relative;
-  top: */
-
-  /* top:30px;
-  left:30px; */
+.favorites{
+  width:400px;
+}
+.favmovietitle{
+  position:relative;
+  left:-40px;
+}
+.reviewset{
+  background:grey;
+  border-radius: 10px;
+  color: white;
+  width:900px;
+  padding-left:10px;
+  padding-bottom: 5px;
 }

@@ -1,12 +1,14 @@
 import MovieList from './MovieList'
 import {useState, useEffect} from 'react'
 import Favorite from './Favorite'
-
+import ReviewList from './ReviewList'
 
 function Home() {
     const [movlist, setMovlist] = useState([])
     const [search, setSearch] = useState("");
     const [favoritelist, setFavoritelist] = useState([])
+    const [reviews, setReviews] = useState([])
+
 
 
     useEffect(() => {
@@ -20,6 +22,12 @@ function Home() {
          .then((r) => r.json())
         //  .then((r) => console.log(r) )
          .then((r) => setFavoritelist(r))
+
+
+         fetch("/reviews")
+         .then((r) => r.json())
+        //  .then((r) => console.log(r) )
+         .then((r) => setReviews(r))
 
       },[]);
 
@@ -48,7 +56,8 @@ function Home() {
 
           <div className='reviews'>
               <h1>Your Reviews</h1>
-              
+              <ReviewList reviews={reviews} setReviews={setReviews} />
+
           </div>
 
       </div>
