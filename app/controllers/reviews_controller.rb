@@ -16,8 +16,11 @@ class ReviewsController < ApplicationController
     end
 
     def destroy 
-
-    end
+      review = Review.find(params[:id])
+      # routine.delete_if { |hash| id.include?(hash[:id]) }
+      review.destroy 
+      render json: review
+  end
 
     def patch 
 

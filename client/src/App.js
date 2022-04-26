@@ -9,15 +9,34 @@ import {useEffect, useState} from 'react'
 
 function App() {
   const [movlist, setMovlist] = useState([])
+  const [reviews, setReviews] = useState([])
+
 
   useEffect(() => {
-
+    
     fetch("/movies")
       .then((r) => r.json())
       .then((r) => setMovlist(r))
 
 
+    fetch("/reviews")
+      .then((r) => r.json())
+      //  .then((r) => console.log(r) )
+      .then((r) => setReviews(r))
+
+
   }, []);
+
+
+  function handleAddRev(newrev) {
+    setReviews([...reviews, newrev]);
+  }
+
+
+  function handleDeleteRev(id) {
+    const updatedRev = reviews.filter((review) => review.id !== id);
+    setReviews(updatedRev);
+  }
   
   console.log(movlist)
  
@@ -33,7 +52,7 @@ function App() {
        <Routes>
          <Route path='/' element={<Home />}/>
           <Route path='/movies'element={<Nav />}>
-            <Route path=':id' element={<ReviewPage movlist={movlist}/>}/>
+            <Route path=':id' element={<ReviewPage  handleAddRev={handleAddRev}  movlist={movlist} setMovlist={setMovlist} />}/>
           </Route>
        </Routes>
        </Router>

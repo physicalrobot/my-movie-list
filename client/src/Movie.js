@@ -33,44 +33,32 @@ import Typography from "@material-ui/core/Typography";
                 .then((r) => handleAddFav(r))
     }
 
-    // function selectReviewsPage(){
-    //     <Link to="/:title"}`></Link>
-    // }
 
 
 
 
     return (
         <div className='movieelement'>
-           {/* <h1 className='movietitle'>{movie.title}  
-           <IconButton    onClick= {favMovieSelect} variant='outlined' size='small'>❤️</IconButton>
-</h1> */}
+ 
  <h2 className='movietitle'>{movie.title}  
  <div className='likenreviewicons'>
            <IconButton    onClick= {favMovieSelect} variant='outlined' size='small'>❤️</IconButton>
 
-         {/* <Link to={`/movies/${movie.title}`} > */}
           <IconButton 
              onClick={() => {
                 navigate(`/movies/${movie.id}`);
               }} 
               variant='outlined' size='small'>📜</IconButton>
-             {/* </Link> */}
 
           
            </div>
-</h2>
-  <Card className='moviecard' style={{ display: 'flex' }}>
+   </h2>
+           <Card className='moviecard' style={{ display: 'flex' }}>
  
-              <CardMedia     component="img"
-image={movie.image_url} title={movie.title} />
-          {/* <Typography gutterBottom variant="headline" component="h2"> */}
-       
-          {/* </Typography> */}
-
-   {/* <img className='movieposter'  src ={movie.image_url}
-    // width="100%" height="100%" 
- ></img> */}
+              <CardMedia     
+              component="img"
+              image={movie.image_url} title={movie.title} />
+         
             </Card>
         </div>
     )

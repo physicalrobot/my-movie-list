@@ -53,6 +53,17 @@ function Home() {
     setFavoritelist(updatedFav);
   }
 
+  function handleAddRev(newrev) {
+    setReviews([...reviews, newrev]);
+  }
+
+
+  function handleDeleteRev(id) {
+    const updatedRev = reviews.filter((review) => review.id !== id);
+    setReviews(updatedRev);
+  }
+  
+
   console.log(movlist)
   return (
     <div>
@@ -70,7 +81,7 @@ function Home() {
 
       <div className='reviews'>
         <h1>Your Reviews</h1>
-        <ReviewList reviews={reviews} setReviews={setReviews} />
+        <ReviewList reviews={reviews} setReviews={setReviews} handleDeleteRev={handleDeleteRev} />
 
       </div>
        {/* <Routes>
