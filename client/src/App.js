@@ -81,7 +81,7 @@ function App() {
 
        {  user ? (
        <Routes>
-         <Route path='/' element={<Home />}/>
+         <Route path='/' element={<Home handleLogout={handleLogout}/>}/>
           <Route path='/movies'element={<Nav />}>
             <Route path=':id' element={<ReviewPage  handleAddRev={handleAddRev}  movlist={movlist} setMovlist={setMovlist} />}/>
           </Route>
@@ -91,7 +91,7 @@ function App() {
         <Route  path="/signup" element={<SignUp user={user} setUser={setUser} handleLogout={handleLogout} />} />
       </Routes>
     )}
-       {/* </Router> */}
+       {/* </Router> */}W
     </div>
   );
 }

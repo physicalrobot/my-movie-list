@@ -64,7 +64,7 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
                 value: value,
                 movie_id: id, 
                 user_id: user.id,
-                // username: username.username
+                username: username.username
                 
             })
         })

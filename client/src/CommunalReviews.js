@@ -7,19 +7,20 @@ import {useState, useEffect} from 'react'
 export default function CommunalReviews ({username,user, review}) {
 
 
-
+    console.log(review.username)
 
 
     return (
     
     // <div className='reviewset'>
         <div className='commreviews'>
+        <div className='readonlyratings'>
         <Rating name="read-only" value={review.value} readOnly />
-
-        <p>{review.text}</p>
-        {console.log(review.user_id)}
-        {/* <h1 className='reviewss'>{review.username}</h1> */}
-
+        </div>
+        <div className = 'commreviewandusername'>
+        <p className='commreviewtext'>{review.text}</p>
+        <h3 className='reviewss'>{review.username} :</h3>
+        </div>
         </div>
 
 //    </div>

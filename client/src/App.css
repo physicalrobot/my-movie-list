@@ -141,9 +141,40 @@
   top:100px;
   font-size: 25px;
 }
+.commreviewtext{
+  position: relative;
+  top:20px;
+  left:30px;
+}
+.logoutbutt{
+  position: relative;
+  top:10px;
+  height:30px;
+  width: 90px;
+  background-color: transparent;
+  color: white;
+  font-weight: bolder;
+}
+.logoutbuttcontainer{
+  position: relative;
+  left:80%;
+  
+}
 
+.commreviewandusername{
+  position: relative;
+  top:-10px;
+  left:20px;
+}
 .reviewss{
-  background-color: pink;
+  position:relative;
+  top:-50px;
+  left: 10px;
+}
+
+.readonlyratings{
+  position: relative;
+  left:370px;
 }
 .reviewimage{
   position:relative;

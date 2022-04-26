@@ -12,7 +12,7 @@ import { CardContent, GridList,Card } from "@material-ui/core";
 
 
 
-function MovieList({ setSearch, search, movielist, handleAddFav }) {
+function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout }) {
 
   // load up the list of movies in the database and display them for the user to select. 
   function MovieSearch(e) {
@@ -37,9 +37,19 @@ function MovieList({ setSearch, search, movielist, handleAddFav }) {
   console.log(movlist)
 
 
+  function handleLogoutClick() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => handleLogout());
+  
+
+}
+
+
 
   return (
     <div className='movieconsole'>
+
       <input
         className='Search'
         name="Search"
@@ -48,6 +58,7 @@ function MovieList({ setSearch, search, movielist, handleAddFav }) {
         value={search}
         onChange={MovieSearch}
       ></input>
+      <div className='logoutbuttcontainer'><button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
 
       {/* <div className='moviel'> */}
       {/* <GridList className='moviel'  cellHeight={450} cols={5} spacing={3} > */}

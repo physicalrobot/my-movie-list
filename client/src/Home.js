@@ -12,7 +12,7 @@ import {
   Router
 } from "react-router-dom"
 
-function Home() {
+function Home({handleLogout}) {
   const [movlist, setMovlist] = useState([])
   const [search, setSearch] = useState("");
   const [favoritelist, setFavoritelist] = useState([])
@@ -71,7 +71,7 @@ function Home() {
       </div>
       <Outlet /> */}
 
-      <MovieList movielist={displayedMovies} search={search} setSearch={setSearch} favoritelist={favoritelist} setFavoritelist={setFavoritelist} handleAddFav={handleAddFav} />
+      <MovieList movielist={displayedMovies} search={search} setSearch={setSearch} favoritelist={favoritelist} setFavoritelist={setFavoritelist} handleAddFav={handleAddFav} handleLogout={handleLogout} />
 
       <div className='favorites'>
         <h1>Your Favorite Movies!</h1>
