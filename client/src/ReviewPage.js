@@ -14,6 +14,7 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
     const [text,setText] = useState("")
     const [value, setValue] = useState(null)
     // const [movlist, setMovlist] = useState([])
+    const [user,setUser] = useState(null)
 
 
 
@@ -44,6 +45,10 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
           .then((r) => r.json())
           .then((r) => setMovlist(r))
 
+          fetch("/users")
+          .then((r) => r.json())
+          .then((r) => setUser(r))
+
         }, []);
 
         function makeNewReview(e) {
@@ -56,9 +61,10 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
             },
             body: JSON.stringify({
                 text: text,
-                // user_id: user_id,
                 value: value,
-                movie_id: id 
+                movie_id: id, 
+                user_id: user.id,
+                // username: username.username
                 
             })
         })
@@ -76,6 +82,23 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
         
     }
 
+    const[username, setUsername] = useState({})
+
+
+    useEffect(() => {
+
+          fetch("/users/1")
+          .then((r) => r.json())
+          .then((r) => setUsername(r))
+
+        }, []);
+
+
+
+
+
+
+
     return (
         <div>
            <h1 className='reviewtitle'>
@@ -85,7 +108,7 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
             <div className='reviewcontainer'>
             {p?.map((movie) => {
                 {console.log(movie.text)}
-               return <CommunalReviews review={movie} />
+               return <CommunalReviews user = {user} review={movie} username ={username.username} />
                 })
             }
             </div>

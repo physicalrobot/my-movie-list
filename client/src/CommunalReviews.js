@@ -4,7 +4,7 @@ import Rating from '@mui/material/Rating';
 import {useState, useEffect} from 'react'
 
 
-export default function CommunalReviews ({review}) {
+export default function CommunalReviews ({username,user, review}) {
 
 
 
@@ -18,7 +18,7 @@ export default function CommunalReviews ({review}) {
 
         <p>{review.text}</p>
         {console.log(review.user_id)}
-        <h1 className='reviewss'>{review.user_id}</h1>
+        {/* <h1 className='reviewss'>{review.username}</h1> */}
 
         </div>
 

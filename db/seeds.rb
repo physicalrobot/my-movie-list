@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 Movie.create([
   {
     title: "Top Gun",
@@ -46,46 +47,55 @@ Movie.create([
             title: "Matrix",
             image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
           }
+    ]),
+
+    Review.create([
+      {
+        text: "hello",
+        value: 2,
+        movie_id: 1
+      }
+
     ])
 
-Review.create([
-  {
-    text: "This movie sucked",
-    value: 1, 
-    movie_id: 1
-  },
-  {
-    text: "This movie sucked",
-    value: 4, 
-    movie_id: 4 
-  },
-  {
-    text: "This movie sucked",
-    value: 5, 
-    movie_id: 2 
-  },
-  {
-    text: "This movie sucked",
-    value: 2, 
-    movie_id: 3
-  },
-  {
-    text: "This movie sucked",
-    value: 3, 
-    movie_id: 1 
-  },
-  {
-    text: "This movie sucked",
-    value: 1, 
-    movie_id: 1 
-  },
-  {
-    text: "This movie sucked",
-    value: 2, 
-    movie_id: 1
-  }
+# Review.create([
+#   {
+#     text: "This movie sucked",
+#     value: 1, 
+#     movie_id: 1
+#   },
+#   {
+#     text: "This movie sucked",
+#     value: 4, 
+#     movie_id: 4 
+#   },
+#   {
+#     text: "This movie sucked",
+#     value: 5, 
+#     movie_id: 2 
+#   },
+#   {
+#     text: "This movie sucked",
+#     value: 2, 
+#     movie_id: 3
+#   },
+#   {
+#     text: "This movie sucked",
+#     value: 3, 
+#     movie_id: 1 
+#   },
+#   {
+#     text: "This movie sucked",
+#     value: 1, 
+#     movie_id: 1 
+#   },
+#   {
+#     text: "This movie sucked",
+#     value: 2, 
+#     movie_id: 1
+#   }
 
-])
+# ])
 
 
   

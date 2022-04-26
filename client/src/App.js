@@ -5,11 +5,18 @@ import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import Nav from './Nav'
 import ReviewPage from './ReviewPage'
 import {useEffect, useState} from 'react'
+import {  useNavigate } from 'react-router-dom';
+import SignUp from './SignUp';
+import Login from './Login';
 
 
 function App() {
   const [movlist, setMovlist] = useState([])
   const [reviews, setReviews] = useState([])
+
+  const [user, setUser] = useState(null)
+
+  let navigate = useNavigate();
 
 
   useEffect(() => {
@@ -37,25 +44,54 @@ function App() {
     const updatedRev = reviews.filter((review) => review.id !== id);
     setReviews(updatedRev);
   }
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me")
+    .then((r) => {
+      if (r.ok) {
+      r.json().then((user) => setUser(user))
+      
+        // console.log(r.js)
+        // setUser(r)
+        // r.text().then(console.log)
+      }else{
+        navigate("/signup")
+      }
+    //   .then((r) => r.json())
+    // })
+    });
+  }, []);
+
+  function handleLogout() {
+    setUser(null);
+    navigate ("/signup")
+  }
+
+
+
+
   
   console.log(movlist)
  
 
   return (
     <div className="App">
-      <Router>
-      <nav>
-      {/* <Link to="/"> Home </Link> */}
+      {/* <Router> */}
 
-
-       </nav>
+       {  user ? (
        <Routes>
          <Route path='/' element={<Home />}/>
           <Route path='/movies'element={<Nav />}>
             <Route path=':id' element={<ReviewPage  handleAddRev={handleAddRev}  movlist={movlist} setMovlist={setMovlist} />}/>
           </Route>
-       </Routes>
-       </Router>
+       </Routes> ) : (
+      <Routes>
+        <Route  path="/login" element={<Login setUser={setUser} user={user} />} />
+        <Route  path="/signup" element={<SignUp user={user} setUser={setUser} handleLogout={handleLogout} />} />
+      </Routes>
+    )}
+       {/* </Router> */}
     </div>
   );
 }
