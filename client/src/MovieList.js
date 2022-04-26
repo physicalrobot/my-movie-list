@@ -22,6 +22,7 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
 
   const [movlist, setMovlist] = useState([])
 
+  const [user,setUser] = useState([])
 
   useEffect(() => {
 
@@ -29,6 +30,21 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
       .then((r) => r.json())
       //  .then((r) => console.log(r) )
       .then((r) => setMovlist(r))
+
+
+
+
+      
+  
+
+
+
+  
+          fetch("/users")
+            .then((r) => r.json())
+            .then((r) => setUser(r))
+  
+        
 
 
     //  .then((mov) => 
@@ -72,7 +88,7 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
             {/* <Card className='moviecard' style={{ display: 'flex' }}>
               <CardContent> */}
 
-            <Movie movie={movie} handleAddFav={handleAddFav} />
+            <Movie movie={movie} handleAddFav={handleAddFav} user={user} />
             {/* </CardContent>
             </Card> */}
 

@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
       end
     
       def create 
-        movie = Favorite.create(title: params[:title], image_url: params[:image_url])
+        movie = Favorite.create(title: params[:title], image_url: params[:image_url], user_id: params[:user_id])
         render json: movie
       end
 

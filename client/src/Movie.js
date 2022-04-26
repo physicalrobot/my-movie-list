@@ -4,6 +4,7 @@ import { CardContent, GridList } from "@material-ui/core";
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 import { useNavigate,Link,Outlet } from "react-router-dom";
+import {useState, useEffect} from 'react'
 
 import Typography from "@material-ui/core/Typography";
 // import {Link} from 'react-router-dom'
@@ -12,8 +13,14 @@ import Typography from "@material-ui/core/Typography";
 
 
 
- function Movie({movie, handleAddFav}){
+ function Movie({movie, handleAddFav, user}){
     const navigate = useNavigate();
+
+
+
+
+    
+        console.log(user.id)
 
 
     const {title} = movie; 
@@ -25,7 +32,8 @@ import Typography from "@material-ui/core/Typography";
         },
         body: JSON.stringify({
             title: movie.title,
-            image_url: movie.image_url
+            image_url: movie.image_url,
+            user_id: user.id
             
         }),
     })
