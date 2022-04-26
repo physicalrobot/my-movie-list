@@ -4,7 +4,7 @@ import Rating from '@mui/material/Rating';
 import { useState, useEffect } from 'react'
 import Review from './Review'
 
-export default function ReviewList({ reviews, setReviews,handleDeleteRev }) {
+export default function ReviewList({ reviews, setReviews,handleDeleteRev, movlist }) {
   
 
 
@@ -15,7 +15,7 @@ export default function ReviewList({ reviews, setReviews,handleDeleteRev }) {
   return (
     <div className='reviewlist'>
       {reviews.map((review) => (
-        <Review handleDeleteRev={handleDeleteRev} review={review} />
+        <Review movlist={movlist} handleDeleteRev={handleDeleteRev} review={review} />
 
       ))}
     </div>

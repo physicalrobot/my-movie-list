@@ -47,8 +47,8 @@ Movie.create([
             image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
           }
     ])
-Review.create([
 
+Review.create([
   {
     text: "This movie sucked",
     value: 1, 

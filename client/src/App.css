@@ -107,6 +107,34 @@
 
 }
 
+
+.newreviewcontainer{
+  position: relative;
+  top:-600px;
+  left:1000px;
+  width:800px;
+}
+
+.reviewtext{
+  width:560px;
+  height:100px;
+}
+
+.submitreview{
+  position: relative;
+  top:40px;
+  left:-210px;
+  width:90px;
+  height: 30px;
+  
+}
+.reviewrating{
+  position:relative;
+  top:-110px;
+  left:-570px;
+
+}
+
 .productsNav{
   position: relative;
   text-align: center;
@@ -213,6 +241,9 @@
   width: 500;
   padding-left: 10px;
   padding-bottom: 5px;
+  padding-top: 3px;
+  margin:10px;
+
 }
 
 .reviewlist {

@@ -35,7 +35,6 @@ function Home() {
 
     fetch("/reviews")
       .then((r) => r.json())
-      //  .then((r) => console.log(r) )
       .then((r) => setReviews(r))
 
   }, []);
@@ -63,7 +62,7 @@ function Home() {
     setReviews(updatedRev);
   }
   
-
+  console.log(favoritelist)
   console.log(movlist)
   return (
     <div>
@@ -81,7 +80,7 @@ function Home() {
 
       <div className='reviews'>
         <h1>Your Reviews</h1>
-        <ReviewList reviews={reviews} setReviews={setReviews} handleDeleteRev={handleDeleteRev} />
+        <ReviewList movlist={movlist} reviews={reviews} setReviews={setReviews} handleDeleteRev={handleDeleteRev} />
 
       </div>
        {/* <Routes>

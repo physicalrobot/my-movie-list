@@ -1,6 +1,12 @@
 import { useParams } from "react-router-dom";
 import {useState,useEffect} from 'react'
 import CommunalReviews from "./CommunalReviews";
+import Button from '@material-ui/core/Button'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Rating from '@mui/material/Rating';
+
+
+
 
 
 
@@ -8,6 +14,18 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
     const [text,setText] = useState("")
     const [value, setValue] = useState(null)
     // const [movlist, setMovlist] = useState([])
+
+
+
+
+    const theme = createTheme({
+        palette: {
+          blue: {
+            main: '#00d5ff',
+            contrastText: '#00d5ff',
+          },
+        },
+      });
 
 
     const { id } = useParams();
@@ -45,7 +63,7 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
             })
         })
                     .then((r) => r.json())
-                    .then(setValue(3))
+                    // .then(setValue(3))
                     .then((r) => handleAddRev(r))
                     .then(
                         fetch("/movies")
@@ -53,7 +71,8 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
                                  .then((mov) => {setMovlist(mov)})
                                  .then( p = movlist[id - 1]?.reviews )
                                  .then( setText("")))
-                  
+                                 .then(setValue(0))
+                
         
     }
 
@@ -71,15 +90,28 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
             }
             </div>
             <div className='newreviewcontainer'>
-                <form onSubmit={makeNewReview}>
-                <textarea
-                        className='reviewtext'
+                <form  onSubmit={makeNewReview}>
+                <textarea className='reviewtext'
                         placeholder='Your review....'
                         type="text"
                         onChange={(e) => setText(e.target.value)}
                         value={text}
                     ></textarea>
-                <button type='submit' ></button>
+
+                <Rating
+                  className='reviewrating'
+                  name="simple-controlled"
+                  value={value}
+                  onChange={(event, newValue) => {
+                  setValue(newValue);
+                     }}
+                    />     
+
+                <ThemeProvider theme={theme}>
+
+                <Button className='submitreview' variant='contained' color="blue" type='submit' >Submit</Button>
+                </ThemeProvider>
+
                 </form> 
             </div>
         </div>

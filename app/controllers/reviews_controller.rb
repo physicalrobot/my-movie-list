@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
-    def index 
+     def index 
         reviews = Review.all 
         render json: reviews
-
 
       end
     
@@ -11,18 +10,14 @@ class ReviewsController < ApplicationController
         render json: review
       end
 
-    def show
 
-    end
+
 
     def destroy 
       review = Review.find(params[:id])
       # routine.delete_if { |hash| id.include?(hash[:id]) }
       review.destroy 
       render json: review
-  end
-
-    def patch 
-
     end
+
 end

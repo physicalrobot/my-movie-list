@@ -14,7 +14,7 @@ export default function CommunalReviews ({review}) {
     
     // <div className='reviewset'>
         <div className='commreviews'>
-                    <Rating name="read-only" value={review.value} readOnly />
+        <Rating name="read-only" value={review.value} readOnly />
 
         <p>{review.text}</p>
         {console.log(review.user_id)}
