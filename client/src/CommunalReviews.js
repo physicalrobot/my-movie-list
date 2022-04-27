@@ -14,13 +14,16 @@ export default function CommunalReviews ({username,user, review}) {
     
     // <div className='reviewset'>
         <div className='commreviews'>
+
+       <div className = 'commreviewandusername'>
+          <h3 className='reviewss'>{review.username} :</h3>
+
+           <p className='commreviewtext'>{review.text}</p>
+        </div>
         <div className='readonlyratings'>
         <Rating name="read-only" value={review.value} readOnly />
         </div>
-        <div className = 'commreviewandusername'>
-        <p className='commreviewtext'>{review.text}</p>
-        <h3 className='reviewss'>{review.username} :</h3>
-        </div>
+     
         </div>
 
 //    </div>

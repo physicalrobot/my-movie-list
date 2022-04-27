@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import FavMovie from './FavMovie';
+import { Stack, ImageList, ImageListItem } from '@mui/material'
 
 export default function Favortie({favoritelist, setFavoritelist, handleDeleteFav}){
 
@@ -15,31 +16,58 @@ export default function Favortie({favoritelist, setFavoritelist, handleDeleteFav
             .then((r) => setUser(r))
   
         }, []);
-  
+
 
 
 
     return (
 
-<div>        
-    <ul className = 'favmovielist'  key={uuidv4()} >
-
-        {favoritelist.map((movie) => (
-console.log(movie),
-user.id == movie.user_id ? (
-
-        
-    <FavMovie handleDeleteFav={handleDeleteFav} movie = {movie} setFavoritelist={setFavoritelist}/>):(console.log('hello'))
-            ))}
+  <div className = 'favmovielist' key = {uuidv4()}>        
+    {/* <ul className = 'favmovielist'  key={uuidv4()} > */}
 
 
-        
+ <ImageList 
+      cols={1} className="favimageList squares" >
+    
 
-            </ul>
-            </div>
+    {favoritelist.map((movie) => (
+
+      <ImageListItem className='favimglistitem' key={movie.id} style={{ display: 'flex' }} >
+
+      <div className = 'innercontain'>
+
+      {user.id == movie.user_id ? (
+    <FavMovie handleDeleteFav={handleDeleteFav} movie = {movie} setFavoritelist={setFavoritelist}/>):(console.log('hello'))}
+          
+</div>
+
+</ImageListItem>
+    ))}
+
+</ImageList>
+
+
+</div>
 
     )
+      }
 
 
 
-}
+
+
+{/* 
+   {favoritelist.map((movie) => (
+
+       user.id == movie.user_id ? (
+    <FavMovie handleDeleteFav={handleDeleteFav} movie = {movie} setFavoritelist={setFavoritelist}/>):(console.log('hello'))))} */}
+
+
+        
+
+
+            {/* </ul> */}
+    
+
+
+

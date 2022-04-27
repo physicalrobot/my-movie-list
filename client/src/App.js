@@ -91,7 +91,8 @@ function App() {
         <Route  path="/signup" element={<SignUp user={user} setUser={setUser} handleLogout={handleLogout} />} />
       </Routes>
     )}
-       {/* </Router> */}W
+       {/* </Router> */}
+       <div className='hello'></div>
     </div>
   );
 }

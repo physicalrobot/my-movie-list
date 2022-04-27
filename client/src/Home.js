@@ -70,10 +70,7 @@ function Home({handleLogout}) {
         <Link to="/"> Home </Link>
       </div>
       <Outlet /> */}
-
-      <MovieList movielist={displayedMovies} search={search} setSearch={setSearch} favoritelist={favoritelist} setFavoritelist={setFavoritelist} handleAddFav={handleAddFav} handleLogout={handleLogout} />
-
-      <div className='favorites'>
+     <div className='favorites'>
         <h1>Your Favorite Movies!</h1>
         <Favorite handleDeleteFav={handleDeleteFav} favoritelist={favoritelist} setFavoritelist={setFavoritelist} />
       </div>
@@ -83,6 +80,13 @@ function Home({handleLogout}) {
         <ReviewList movlist={movlist} reviews={reviews} setReviews={setReviews} handleDeleteRev={handleDeleteRev} />
 
       </div>
+
+
+      <MovieList movielist={displayedMovies} search={search} setSearch={setSearch} favoritelist={favoritelist} setFavoritelist={setFavoritelist} handleAddFav={handleAddFav} handleLogout={handleLogout} />
+
+ 
+
+    
        {/* <Routes>
     
          <Route path="/movies/:id" element={<ReviewPage movlist={movlist} />} />

@@ -84,41 +84,19 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
         
       {movielist.map((movie) => (
           <ImageListItem key={movie.id} style={{ display: 'flex' }}    >
-            {/* <img src={movie.image_url} alt={movie.title} /> */}
-            {/* <Card className='moviecard' style={{ display: 'flex' }}>
-              <CardContent> */}
+  
 
             <Movie movie={movie} handleAddFav={handleAddFav} user={user} />
-            {/* </CardContent>
-            </Card> */}
+       
 
           </ImageListItem>
         ))}
-      {/* </GridList> */}
       </ImageList>
-      {/* </div> */}
     </div>
 
 
 
-    //         <ul className = 'moviel'  key={uuidv4()} >
-    //         <Button>
-    //             Hello World
-    //         </Button>
 
-    // {movielist.map((movie) => (
-    //     // <h1 className='movietitle'>{movie.title}</h1>
-
-    //     // <img className='movieposter' src={movie.image_url}/>  
-
-
-    //     <Movie movie = {movie} handleAddFav={handleAddFav} />
-    // ))}
-
-
-    // </ul> 
-
-    // </div>
   )
 }
 export default MovieList
