@@ -29,10 +29,13 @@ export default function ReviewList({ reviews, setReviews,handleDeleteRev, movlis
     <div className='reviewlist'>
       {reviews.map((review) => (
 
-        user.id == review.user_id ? (
+        <div className='reviewl'>
+        {user.id == review.user_id ? (
 
         
-        <Review movlist={movlist} handleDeleteRev={handleDeleteRev} review={review} />):(console.log('hello'))
+        <Review movlist={movlist} handleDeleteRev={handleDeleteRev} review={review} />):(console.log('hello'))}
+
+        </div>
         
       ))}
     </div>
