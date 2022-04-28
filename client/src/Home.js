@@ -82,7 +82,7 @@ function Home({handleLogout}) {
       <Outlet /> */}
       <div className='heading'>
         <h1 className='siteheading'>My Movie List</h1>
-        <div className='logoutbuttcontainer'><div className='logoutbutt' onClick={handleLogoutClick}>Logout</div></div>
+        <div className='logoutbuttcontainer'><button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
 
       </div>
      <div className='favorites'>
