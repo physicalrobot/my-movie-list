@@ -59,9 +59,9 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
 
   return (
  
-          <div className='movieconsole'>
+      <div className='movieconsole'>
            <div className='movieconsoleheading'>
-        </div>
+           </div>
 
       <input
         className='Search'

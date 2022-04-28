@@ -86,12 +86,12 @@ function Home({handleLogout}) {
 
       </div>
      <div className='favorites'>
-        <h1>Your Favorite Movies!</h1>
+        <h1 className='favmoviehead'>Your Favorite Movies!</h1>
         <Favorite handleDeleteFav={handleDeleteFav} favoritelist={favoritelist} setFavoritelist={setFavoritelist} />
       </div>
 
       <div className='reviews'>
-        <h1>Your Reviews</h1>
+        <h1 className='reviewhead'>Your Reviews</h1>
         <ReviewList movlist={movlist} reviews={reviews} setReviews={setReviews} handleDeleteRev={handleDeleteRev} />
 
       </div>

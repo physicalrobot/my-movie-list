@@ -26,6 +26,7 @@ export default function ReviewList({ reviews, setReviews,handleDeleteRev, movlis
 
 
   return (
+    <div className='homepagerev'>
     <div className='reviewlist'>
       {reviews.map((review) => (
 
@@ -38,6 +39,7 @@ export default function ReviewList({ reviews, setReviews,handleDeleteRev, movlis
         </div>
         
       ))}
+    </div>
     </div>
 
 
