@@ -62,6 +62,16 @@ function Home({handleLogout}) {
     setReviews(updatedRev);
   }
   
+
+  function handleLogoutClick() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => handleLogout());
+  
+
+}
+
+
   console.log(favoritelist)
   console.log(movlist)
   return (
@@ -70,6 +80,11 @@ function Home({handleLogout}) {
         <Link to="/"> Home </Link>
       </div>
       <Outlet /> */}
+      <div className='heading'>
+        <h1 className='siteheading'>My Movie List</h1>
+        <div className='logoutbuttcontainer'><div className='logoutbutt' onClick={handleLogoutClick}>Logout</div></div>
+
+      </div>
      <div className='favorites'>
         <h1>Your Favorite Movies!</h1>
         <Favorite handleDeleteFav={handleDeleteFav} favoritelist={favoritelist} setFavoritelist={setFavoritelist} />

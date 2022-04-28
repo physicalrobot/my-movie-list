@@ -53,28 +53,24 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
   console.log(movlist)
 
 
-  function handleLogoutClick() {
-    fetch("/logout", {
-      method: "DELETE",
-    }).then(() => handleLogout());
-  
 
-}
 
 
 
   return (
-    <div className='movieconsole'>
+ 
+          <div className='movieconsole'>
+           <div className='movieconsoleheading'>
+        </div>
 
       <input
         className='Search'
         name="Search"
         type="text"
-        placeholder="Search Movies.."
+        placeholder="🔍 Find A Movie..."
         value={search}
         onChange={MovieSearch}
       ></input>
-      <div className='logoutbuttcontainer'><button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
 
       {/* <div className='moviel'> */}
       {/* <GridList className='moviel'  cellHeight={450} cols={5} spacing={3} > */}
@@ -92,8 +88,8 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
           </ImageListItem>
         ))}
       </ImageList>
-    </div>
 
+    </div>
 
 
 

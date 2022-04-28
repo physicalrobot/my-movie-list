@@ -40,10 +40,12 @@ export default function Review ({review, handleDeleteRev}) {
 
         <h1 className='reviewmovie'>{movies[review.movie_id - 1]?.title}</h1>
         <h3 className='reviewbod'>{review.text}
-        <IconButton  onClick={handleDelete} variant='outlined' size='small'>🗑️</IconButton>
+      
         </h3>
         <div className='readonlyrevrate' >
         <Rating name="read-only" value={review.value} readOnly />
+
+        <IconButton className='trashcan' onClick={handleDelete} variant='outlined' size='small'>🗑️</IconButton>
         </div>
    </div>
 
