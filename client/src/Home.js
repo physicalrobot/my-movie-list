@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Favorite from './Favorite'
 import ReviewList from './ReviewList'
 import ReviewPage from './ReviewPage'
+import film from './film.png'
 
 import {
   BrowserRouter,Routes,
@@ -81,6 +82,9 @@ function Home({handleLogout}) {
       </div>
       <Outlet /> */}
       <div className='heading'>
+      <div className="siteicon">
+       <img src={film}></img> 
+      </div>
         <h1 className='siteheading'>My Movie List</h1>
         <div className='logoutbuttcontainer'><button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
 

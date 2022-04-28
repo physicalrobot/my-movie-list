@@ -266,6 +266,12 @@ color: #000000;
 
 
 }
+.siteicon{
+  position: relative;
+  top:15px;
+  left:30px;
+  width:50px;
+}
 
 
 .reviews {
@@ -380,6 +386,7 @@ color: #000000;
 .logoutbuttcontainer{
   position: relative;
   left:80%;
+  top:-50px;
   
 }
 
