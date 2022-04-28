@@ -101,6 +101,11 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
 
     return (
         <div>
+          
+          
+
+
+
            <h1 className='reviewtitle'>
                {movlist[id - 1]?.title}
             </h1>

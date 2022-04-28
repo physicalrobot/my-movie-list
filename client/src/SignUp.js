@@ -39,11 +39,12 @@ function SignUp({ setUser }) {
 
   return (
     <div>
+      <div className='signupheader'></div>
       <form onSubmit={handleSubmit}>
       <h1 className='signuptitletext'>Sign Up</h1>
 
         <div className="signupstuff">
-        <h1 id="username">Username</h1>
+        <h1 id="username">Username:</h1>
         <input
           type="text"
           className="username"
@@ -52,7 +53,7 @@ function SignUp({ setUser }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <h1 id="password">Password</h1>
+        <h1 id="password">Password:</h1>
         <input
           type="password"
           id="passwordtextbox"
@@ -61,7 +62,7 @@ function SignUp({ setUser }) {
           autoComplete="current-password"
         />
         <h1
-        className="passwordconfirmation" htmlFor="password">Password Confirmation</h1>
+        className="passwordconfirmation" htmlFor="password">Password Confirmation:</h1>
         <input
           type="password"
           id="passwordconfirmationtextbox"

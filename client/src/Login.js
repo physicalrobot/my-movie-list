@@ -29,6 +29,7 @@ function Login({ user,setUser }) {
   
     return (
       <div>
+         <div className='signupheader'></div>
         <form onSubmit={handleSubmit}>
           
           <h1 className = "logintitletext">Login</h1>
@@ -36,7 +37,7 @@ function Login({ user,setUser }) {
           <h1 
                       id="username"
 
-         >Username</h1>
+         >Username:</h1>
           <input
             type="text"
             id="usernametextbox"
@@ -47,7 +48,7 @@ function Login({ user,setUser }) {
           />
           </div>
           <div className = "passwordstuff">
-          <h1 htmlFor="password" id='password'>Password</h1>
+          <h1 htmlFor="password" id='password'>Password:</h1>
           <input
             type="password"
             id="passwordtextbox"
