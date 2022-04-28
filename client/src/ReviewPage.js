@@ -104,8 +104,13 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
            <h1 className='reviewtitle'>
                {movlist[id - 1]?.title}
             </h1>
+            <div className='stuff'>
             <img className='reviewimage' src={movlist[id - 1]?.image_url} />
+
+            </div>
             <div className='reviewcontainer'>
+              
+
             {p?.map((movie) => {
                 {console.log(movie.text)}
                return <CommunalReviews user = {user} review={movie} username ={username.username} />
