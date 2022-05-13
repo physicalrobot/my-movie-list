@@ -13,11 +13,14 @@ import { CardContent, GridList,Card } from "@material-ui/core";
 
 
 function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout }) {
+  const [moviepic, setMoviepic] = useState(null)
+  const [title, setTitle] = useState('')
 
   // load up the list of movies in the database and display them for the user to select. 
   function MovieSearch(e) {
     setSearch(e.target.value)
   }
+
 
 
   const [movlist, setMovlist] = useState([])
@@ -53,6 +56,18 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
   console.log(movlist)
 
 
+  // function handleSubmit(event) {
+  //   event.preventDefault()
+  //   const formData = new FormData();
+  //   formData.append('image', file);
+  //   formData.append('fileName', file.name);
+  //   fetch('/movies', {
+  //         method: 'POST',
+  //         body: formData
+  //       })
+  //     }
+
+  
 
 
 
@@ -83,11 +98,23 @@ function MovieList({ setSearch, search, movielist, handleAddFav, handleLogout })
   
 
             <Movie movie={movie} handleAddFav={handleAddFav} user={user} />
-       
+
+            {/* <form onSubmit={handleBeatSubmit}>
+                    <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={(e) => setMoviepic(e.target.files[0])}/>
+                    <input type='submit'/>
+            </form> */}
+
 
           </ImageListItem>
         ))}
       </ImageList>
+
+
+      {/* <form onSubmit={handleBeatSubmit}>
+          <h1>React File Upload</h1>
+          <input type="file" name='image' onChange={handleChange}/>
+          <button type="submit">Upload</button>
+        </form> */}
 
     </div>
 

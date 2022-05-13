@@ -2,22 +2,42 @@ require 'uri'
 require 'net/http'
 require 'openssl'
 
+require "google/cloud/storage"
+
 
 
 class MoviesController < ApplicationController
 
   
- 
+
   def index 
     movies = Movie.all 
     # render json: movies
-    render json: movies, include: [ :reviews ]
+    render json: movies, include: [ :reviews ], methods: [:public_url ] 
   end
 
+
+
   def create 
-    movie = Movie.create(title: params[:title], image_url: params[:image_url])
-    render json: movie
+    
+
+    movie = Movie.create(title: params[:title], image: params[:image], image_url: params[:image_url])
+    # storage = Google::Cloud::Storage.new
+
+    
+
+    # if params[:image] != ""
+    #   movie.update(image: params[:image])
+    #   movie[:image_url] = url_for(movie.image)
+    #   movie[:title] = Storage[0].name
+    # end
+    render json: movie, include: [ :reviews ], methods: [:public_url ]   
   end
+
+
+
+
+  
 
 
 

@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
       end
     
       def create 
-        review = Review.create(text: params[:text], value: params[:value], user_id: params[:user_id], movie_id: params[:movie_id], username: params[:username])
+        review = Review.create(text: params[:text], value: params[:value], user_id: params[:user_id], movie_id: params[:movie_id], username: params[:username], userpic: params[:userpic])
         render json: review
       end
 

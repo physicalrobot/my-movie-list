@@ -14,7 +14,7 @@ function App() {
   const [movlist, setMovlist] = useState([])
   const [reviews, setReviews] = useState([])
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState([])
 
   let navigate = useNavigate();
 
@@ -30,7 +30,23 @@ function App() {
       .then((r) => r.json())
       //  .then((r) => console.log(r) )
       .then((r) => setReviews(r))
+      
 
+
+      fetch("/me")
+    .then((r) => {
+      if (r.ok) {
+      r.json().then((user) => setUser(user))
+      
+        // console.log(r.js)
+        // setUser(r)
+        // r.text().then(console.log)
+      }else{
+        navigate("/signup")
+      }
+    //   .then((r) => r.json())
+    // })
+    })
 
   }, []);
 
@@ -45,23 +61,35 @@ function App() {
     setReviews(updatedRev);
   }
 
-  useEffect(() => {
-    // auto-login
-    fetch("/me")
-    .then((r) => {
-      if (r.ok) {
-      r.json().then((user) => setUser(user))
+  let url = ""
+
+  // fetch("/me")
+  // .then((r) => {
+  //   if (r.ok) {
+  //   r.json().then((user) => setUser(user))
+    
+  //   url = user[1].public_url}})
+
+
+
+
+  // useEffect(() => {
+  //   // auto-login
+  //   fetch("/me")
+  //   .then((r) => {
+  //     if (r.ok) {
+  //     r.json().then((user) => setUser(user))
       
-        // console.log(r.js)
-        // setUser(r)
-        // r.text().then(console.log)
-      }else{
-        navigate("/signup")
-      }
-    //   .then((r) => r.json())
-    // })
-    });
-  }, []);
+  //       // console.log(r.js)
+  //       // setUser(r)
+  //       // r.text().then(console.log)
+  //     }else{
+  //       navigate("/signup")
+  //     }
+  //   //   .then((r) => r.json())
+  //   // })
+  //   });
+  // }, []);
 
   function handleLogout() {
     setUser(null);
@@ -69,10 +97,12 @@ function App() {
   }
 
 
+  function changeUserpic(pic){
+    setUser(pic)
 
+  }
 
-  
-  console.log(movlist)
+  console.log(url)
  
 
   return (
@@ -81,7 +111,12 @@ function App() {
 
        {  user ? (
        <Routes>
-         <Route path='/' element={<Home handleLogout={handleLogout}/>}/>
+         <Route path='/' element={<Home 
+         handleLogout={handleLogout} 
+         setUser={setUser} 
+         changeUserpic={changeUserpic} 
+         user= {user} 
+         id = {user.id}/>}/>
           <Route path='/movies'element={<Nav />}>
             <Route path=':id' element={<ReviewPage  handleAddRev={handleAddRev}  movlist={movlist} setMovlist={setMovlist} />}/>
           </Route>

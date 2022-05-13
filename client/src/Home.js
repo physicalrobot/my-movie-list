@@ -1,5 +1,5 @@
 import MovieList from './MovieList'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Favorite from './Favorite'
 import ReviewList from './ReviewList'
 import ReviewPage from './ReviewPage'
@@ -13,11 +13,12 @@ import {
   Router
 } from "react-router-dom"
 
-function Home({handleLogout}) {
+function Home({handleLogout, user,setUser, id, changeUserpic}) {
   const [movlist, setMovlist] = useState([])
   const [search, setSearch] = useState("");
   const [favoritelist, setFavoritelist] = useState([])
   const [reviews, setReviews] = useState([])
+  const [userpic, setUserpic] = useState(null)
 
 
 
@@ -38,10 +39,17 @@ function Home({handleLogout}) {
       .then((r) => r.json())
       .then((r) => setReviews(r))
 
+
+      fetch("/me")
+      .then((r) => {
+        if (r.ok) {
+        r.json().then((user) => setUser(user))}})
+        
+
   }, []);
 
   const displayedMovies = movlist.filter((movies) =>
-    movies.title.toLowerCase().includes(search.toLowerCase())
+    movies.title?.toLowerCase().includes(search.toLowerCase())
   )
 
   function handleAddFav(newfav) {
@@ -72,11 +80,56 @@ function Home({handleLogout}) {
 
 }
 
+const [avatar, setAvatar] = useState(null)
 
-  console.log(favoritelist)
-  console.log(movlist)
+
+
+ const handleSubmit= (event) => {
+    event.preventDefault()
+    
+    const formData = new FormData();
+    formData.append('avatar', userpic);
+    fetch(`/users/${id}`, {
+
+          method: 'PATCH',
+          body: formData,
+        })
+        .then((r) => r.json())
+        .then(
+          fetch("/me")
+          
+          .then((r) => {
+            if (r.ok) {
+            r.json().then((user) => setUser(user))
+            
+        
+    }}))
+
+
+ 
+  }
+  const ref = useRef("");
+
+  function handleClick() {
+    ref.current.value = ""
+  }
+
+
+
+  // console.log(user[1]?.public_url)
+    
+
   return (
     <div>
+
+
+
+
+
+
+
+
+
       {/* <div className='navi'>
         <Link to="/"> Home </Link>
       </div>
@@ -86,13 +139,36 @@ function Home({handleLogout}) {
        <img src={film}></img> 
       </div>
         <h1 className='siteheading'>My Movie List</h1>
-        <div className='logoutbuttcontainer'><button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
-
+        <div 
+        className='logoutbuttcontainer'>
+          {/* <div className='avatardiv'> */}
+          {user[1]?.public_url ? <img className='avatar' src={user[1]?.public_url} /> : null}
+          {/* </div> */}
+          <button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
       </div>
+      
+<div id='uploadform'>
+
+<form onSubmit={handleSubmit}>
+            <input className='profilepicinput' id='profilepicinput1' type="file" ref={ref} accept="image/png, image/jpeg" onChange={(e) => setUserpic(e.target.files[0])} />
+              <input className='profilepicinputbutt' onClick={handleClick}  type='submit'/>
+              {/* <label for="uploadavatar">Change Profile Pic</label> */}
+      </form> 
+
+  
+      </div>
+
+
+
+
+
+
      <div className='favorites'>
         <h1 className='favmoviehead'>Your Favorite Movies!</h1>
         <Favorite handleDeleteFav={handleDeleteFav} favoritelist={favoritelist} setFavoritelist={setFavoritelist} />
       </div>
+
+
 
       <div className='reviews'>
         <h1 className='reviewhead'>Your Reviews</h1>
@@ -106,10 +182,7 @@ function Home({handleLogout}) {
  
 
     
-       {/* <Routes>
-    
-         <Route path="/movies/:id" element={<ReviewPage movlist={movlist} />} />
-      </Routes> */}
+ 
 
     </div>
   )

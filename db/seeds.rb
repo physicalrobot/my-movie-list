@@ -9,43 +9,43 @@
 Movie.create([
   {
     title: "Top Gun",
-    image_url: "https://m.media-amazon.com/images/I/71y92uGrjBL._AC_SL1500_.jpg"
+    image_url: "https://storage.cloud.google.com/movie_bucket_list/topgun.jpg"
   },
   {
       title: "Harry Potter and the Sorcerer's Stone",
-      image_url: "https://m.media-amazon.com/images/I/71x1RHSaEhL._AC_SY879_.jpg"
+      image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter1.jpg"
     },
     {
       title: "Harry Potter and the Chamber of Secrets",
-      image_url: "https://www.themoviedb.org/t/p/original/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg"
+      image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter2.jpg"
     },
     {
         title: "Harry Potter and the Prisoner of Azkaban",
-        image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg"
+        image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter3.jpg"
       },
       {
           title: "Harry Potter and the Goblet of Fire",
-          image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg"
+          image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter4.jpg"
         },
         {
             title: "Harry Potter and the Order of the Phoenix",
-            image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tRoHysNFsXC2r0JiBL6iNHELut7.jpg"
+            image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter5.jpg"
           },
           {
             title: "Harry Potter and the Half-Blood Prince",
-            image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/o2j49x3HYJC2VH689rYxmswtSgS.jpg"
+            image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter6.jpg"
           },
           {
             title: "Harry Potter and the Deathly Hallows part 1",
-            image_url: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg"
+            image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter71.jpg"
           },
           {
             title: "Harry Potter and the Deathly Hallows part 2",
-            image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/c54HpQmuwXjHq2C9wmoACjxoom3.jpg"
+            image_url: "https://storage.cloud.google.com/movie_bucket_list/HarryPotter72.jpg"
           },
           {
             title: "Matrix",
-            image_url: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+            image_url: "https://storage.cloud.google.com/movie_bucket_list/Matrix.jpg"
           }
     ])
 

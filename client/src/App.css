@@ -456,6 +456,72 @@ color: #000000;
 }
 
 
+#uploadform{
+  position: relative;
+  top:80px;
+  left:30px;
+}
+#uploadavatar
+.profilepicinput{
+  font-size: larger;
+    left:30px;
+
+
+
+
+}
+/* label{
+  position: relative;
+  background:black;
+  color:white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  margin-top: 1rem;
+} */
+
+
+
+.profilepicinputbutt{
+  /* position: relative;
+  background:black;
+  color:white;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  margin-top: 1rem; */
+  position:relative;
+  left:-253px;
+  top:30px;
+}
+.avatardiv{
+  position: relative;
+  left:109px;
+  width:150px;
+  top:5px;
+  z-index: 100;
+}
+.avatar{
+  position: relative;
+  width:65px;
+  height:65px;
+  border-radius: 50px;
+  object-fit:cover;
+
+  z-index: 100;
+}
+.reviewavatar{
+  position: relative;
+  top:40px;
+  width:65px;
+  height:65px;
+  border-radius: 50px;
+  object-fit:cover;
+
+}
+
 .commreviewtext{
   position: relative;
   font-family: 'Inter';
@@ -463,27 +529,29 @@ color: #000000;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
+  top:20px;
+  left:85px;
   
   color: #000000;
 }
 .logoutbutt{
-  position: relative;
+  position: absolute;
   border-width: 2px;
   border-color: white;
   border-style: solid;
-  top:20px;
+  top:15px;
   height:30px;
   width: 90px;
   background-color: transparent;
   color: white;
   font-weight: bolder;
   text-align: center;
-  left:150px;
-  z-index: 3;
+  left:100px;
+  z-index: 10;
 }
 .logoutbuttcontainer{
   position: relative;
-  left:80%;
+  left:85%;
   top:-50px;
   
 }
@@ -500,6 +568,8 @@ color: #000000;
   font-weight: 700;
   font-size: 30px;
   line-height: 36px;
+  left:80px;
+  top:-15px;
   
   
   color: #000000;
@@ -507,7 +577,8 @@ color: #000000;
 
 .readonlyratings{
   position: relative;
-  left:16px;
+  left:390px;
+  top:-80px;
   
   /* top:-10px; */
 }
@@ -531,13 +602,17 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .reviewcontainer{
   position: absolute;
-width: 539px;
+width: 569px;
 height: 388px;
 left: 50%;
 top: 243px;
 overflow: auto;
 
+
 }
+/* .reviewcontainer::-webkit-scrollbar {
+  overflow-x: none;
+} */
 
 
 .commreviews{

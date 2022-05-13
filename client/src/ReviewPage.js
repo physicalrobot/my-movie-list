@@ -37,6 +37,12 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
     //   const r = p.map((review) =>  review.text)
     //   console.log( p.map((review) =>  review.text))
 
+    const[username, setUsername] = useState([])
+
+
+
+
+
 
 
       useEffect(() => {
@@ -49,10 +55,18 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
           .then((r) => r.json())
           .then((r) => setUser(r))
 
+          
+          fetch("/me")
+          .then((r) => r.json())
+          .then((r) => setUsername(r))
+
         }, []);
 
+        // const publicavatar = username[1].public_url
         function makeNewReview(e) {
             e.preventDefault();
+
+
     
            fetch("/reviews", {
             method: "POST",
@@ -64,7 +78,8 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
                 value: value,
                 movie_id: id, 
                 user_id: user.id,
-                username: username.username
+                username: username[0].username,
+                userpic: username[1].public_url
                 
             })
         })
@@ -78,24 +93,16 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
                                  .then( p = movlist[id - 1]?.reviews )
                                  .then( setText("")))
                                  .then(setValue(0))
+                                 
                 
         
     }
 
-    const[username, setUsername] = useState({})
-
-
-    useEffect(() => {
-
-          fetch("/users/1")
-          .then((r) => r.json())
-          .then((r) => setUsername(r))
-
-        }, []);
+    
 
 
 
-
+        console.log(username[1]?.public_url)
 
 
 
@@ -117,8 +124,9 @@ export default function ReviewPage({movlist, handleAddRev, setMovlist}){
               
 
             {p?.map((movie) => {
-                {console.log(movie.text)}
-               return <CommunalReviews user = {user} review={movie} username ={username.username} />
+                {console.log(username[1]?.public_url)}
+               return <CommunalReviews review={movie} public_url={username[1]?.public_url}
+                />
                 })
             }
             </div>

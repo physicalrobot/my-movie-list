@@ -4,10 +4,10 @@ import Rating from '@mui/material/Rating';
 import {useState, useEffect} from 'react'
 
 
-export default function CommunalReviews ({username,user, review}) {
+export default function CommunalReviews ({username,user, review, public_url}) {
 
 
-    console.log(review.username)
+    console.log(review)
 
 
     return (
@@ -16,6 +16,7 @@ export default function CommunalReviews ({username,user, review}) {
         <div className='commreviews'>
 
        <div className = 'commreviewandusername'>
+           <img className='reviewavatar' src={review.userpic}/>
           <h3 className='reviewss'>{review.username} :</h3>
 
            <p className='commreviewtext'>{review.text}</p>
