@@ -168,7 +168,7 @@ const [avatar, setAvatar] = useState(null)
         <div 
         className='logoutbuttcontainer'>
           {/* <div className='avatardiv'> */}
-          {user[1]?.public_url ? <img className='avatar' src={user[1]?.public_url} /> : <img className='avatar' src="client/src/profile-picture.png" /> }
+          {user[1]?.public_url ? <img className='avatar' src={user[1]?.public_url} /> : <img className='avatar' src={"client/src/profile-picture.png"} /> }
           {/* </div> */}
           <button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
       </div>
@@ -176,7 +176,8 @@ const [avatar, setAvatar] = useState(null)
 <div id='uploadform'>
 
 <form onSubmit={handleSubmit}>
-            <input className='profilepicinput' id='profilepicinput1' type="file" ref={ref} accept="image/png, image/jpeg" onChange={(e) => {handleChange(e)}}  />
+            <input className='profilepicinput' id='profilepicinput1' type="file" ref={ref} accept="image/png, image/jpeg" onChange={(e) => setUserpic(e.target.files[0])
+}  />
               <input className='profilepicinputbutt' onClick={handleSubmit}  type='submit'/>
               {/* <label for="uploadavatar">Change Profile Pic</label> */}
       </form> 
