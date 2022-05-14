@@ -102,7 +102,6 @@ function App() {
 
   }
 
-  console.log(url)
  
 
   return (
@@ -120,14 +119,18 @@ function App() {
           <Route path='/movies'element={<Nav />}>
             <Route path=':id' element={<ReviewPage  handleAddRev={handleAddRev}  movlist={movlist} setMovlist={setMovlist} />}/>
           </Route>
+        <Route  path="/signup" element={<SignUp user={user} setUser={setUser} handleLogout={handleLogout} />} />
+        <Route  path="/login" element={<Login setUser={setUser} user={user} />} />
+
+    
        </Routes> ) : (
       <Routes>
+
         <Route  path="/login" element={<Login setUser={setUser} user={user} />} />
         <Route  path="/signup" element={<SignUp user={user} setUser={setUser} handleLogout={handleLogout} />} />
       </Routes>
     )}
        {/* </Router> */}
-       <div className='hello'></div>
     </div>
   );
 }

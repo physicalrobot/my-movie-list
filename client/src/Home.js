@@ -1,5 +1,5 @@
 import MovieList from './MovieList'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useReducer, useRef } from 'react'
 import Favorite from './Favorite'
 import ReviewList from './ReviewList'
 import ReviewPage from './ReviewPage'
@@ -12,6 +12,7 @@ import {
   Route,
   Router
 } from "react-router-dom"
+import { EcoTwoTone } from '@material-ui/icons'
 
 function Home({handleLogout, user,setUser, id, changeUserpic}) {
   const [movlist, setMovlist] = useState([])
@@ -21,6 +22,10 @@ function Home({handleLogout, user,setUser, id, changeUserpic}) {
   const [userpic, setUserpic] = useState(null)
 
 
+  const[reducerValue, forceUpdate] = useReducer(x =>  x + 1, 0)
+
+
+  const ref = useRef("");
 
   useEffect(() => {
 
@@ -46,7 +51,7 @@ function Home({handleLogout, user,setUser, id, changeUserpic}) {
         r.json().then((user) => setUser(user))}})
         
 
-  }, []);
+  }, [reducerValue]);
 
   const displayedMovies = movlist.filter((movies) =>
     movies.title?.toLowerCase().includes(search.toLowerCase())
@@ -105,13 +110,34 @@ const [avatar, setAvatar] = useState(null)
         
     }}))
 
-
+    ref.current.value = ""
+    forceUpdate()
  
   }
-  const ref = useRef("");
 
-  function handleClick() {
-    ref.current.value = ""
+  function handleChange (e)  {
+    e.preventDefault()
+
+    setUserpic(e.target.files[0])
+
+    const formData = new FormData();
+    formData.append('avatar', userpic);
+    fetch(`/users/${id}`, {
+
+          method: 'PATCH',
+          body: formData,
+        })
+        .then((r) => r.json())
+        .then(
+          fetch("/me")
+          
+          .then((r) => {
+            if (r.ok) {
+            r.json().then((user) => setUser(user))
+            
+        
+    }}))
+
   }
 
 
@@ -142,7 +168,7 @@ const [avatar, setAvatar] = useState(null)
         <div 
         className='logoutbuttcontainer'>
           {/* <div className='avatardiv'> */}
-          {user[1]?.public_url ? <img className='avatar' src={user[1]?.public_url} /> : null}
+          {user[1]?.public_url ? <img className='avatar' src={user[1]?.public_url} /> : <img className='avatar' src="client/src/profile-picture.png" /> }
           {/* </div> */}
           <button className='logoutbutt' onClick={handleLogoutClick}>Logout</button></div>
       </div>
@@ -150,8 +176,8 @@ const [avatar, setAvatar] = useState(null)
 <div id='uploadform'>
 
 <form onSubmit={handleSubmit}>
-            <input className='profilepicinput' id='profilepicinput1' type="file" ref={ref} accept="image/png, image/jpeg" onChange={(e) => setUserpic(e.target.files[0])} />
-              <input className='profilepicinputbutt' onClick={handleClick}  type='submit'/>
+            <input className='profilepicinput' id='profilepicinput1' type="file" ref={ref} accept="image/png, image/jpeg" onChange={(e) => {handleChange(e)}}  />
+              <input className='profilepicinputbutt' onClick={handleSubmit}  type='submit'/>
               {/* <label for="uploadavatar">Change Profile Pic</label> */}
       </form> 
 

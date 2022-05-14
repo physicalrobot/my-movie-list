@@ -20,7 +20,7 @@ import Typography from "@material-ui/core/Typography";
 
 
     
-        console.log(user.id)
+        // console.log(user.id)
 
 
     const {title} = movie; 

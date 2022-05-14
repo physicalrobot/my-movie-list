@@ -36,7 +36,7 @@ export default function Favortie({favoritelist, setFavoritelist, handleDeleteFav
 
       <div className = 'innercontain'>
 
-      {user.id == movie.user_id ? (
+      {user?.id == movie.user_id ? (
     <FavMovie handleDeleteFav={handleDeleteFav} movie = {movie} setFavoritelist={setFavoritelist}/>):(console.log('hello'))}
           
 </div>

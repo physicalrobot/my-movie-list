@@ -31,7 +31,7 @@ export default function ReviewList({ reviews, setReviews,handleDeleteRev, movlis
       {reviews.map((review) => (
 
         <div className='reviewl'>
-        {user.id == review.user_id ? (
+        {user?.id == review.user_id ? (
 
         
         <Review movlist={movlist} handleDeleteRev={handleDeleteRev} review={review} />):(console.log('hello'))}
