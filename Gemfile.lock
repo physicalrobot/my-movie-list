@@ -138,6 +138,7 @@ GEM
       nokogiri (>= 1.6.0)
     jsonapi-renderer (0.2.2)
     jwt (2.3.0)
+    kgio (2.11.4)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -203,6 +204,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
+    raindrops (0.20.0)
     rake (13.0.3)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -264,6 +266,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.1)
+    unicorn (6.1.0)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
     webrick (1.7.0)
     websocket-driver (0.7.4)
       websocket-extensions (>= 0.1.0)
@@ -293,6 +298,7 @@ DEPENDENCIES
   spring
   themoviedb-api
   tzinfo-data
+  unicorn
 
 RUBY VERSION
    ruby 2.7.4p191
