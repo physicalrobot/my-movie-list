@@ -46,6 +46,9 @@ And last but not least is the library of Movies you will be interacting with. Yo
 Feel free to check out the deployed version of the site here: 
 https://make-my-movie-list.herokuapp.com/
 
+You may make your own user or user the following credentials to login:
+Username: user
+Password: name
 
 
 ## License
